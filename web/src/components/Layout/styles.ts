@@ -21,24 +21,6 @@ export const HeaderContainer = styled.div`
   svg {
     margin: 0 1rem;
   }
-
-  @media (max-width: 1980px) {
-    /* margin: 0 3rem; */
-  }
-
-  @media (max-width: 1040px) {
-    /* position: relative; */
-    /* margin-left: 48px; */
-
-    > a {
-      width: 60%;
-    }
-  }
-
-  @media (max-width: 470px) {
-    position: unset;
-    margin-left: 20px;
-  }
 `;
 
 export const Holder = styled.div`

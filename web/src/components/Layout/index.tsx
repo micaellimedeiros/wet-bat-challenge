@@ -7,7 +7,15 @@ import {
   BsGearFill,
 } from "react-icons/bs";
 
-import { InputLeftElement, Input, InputGroup, Icon } from "@chakra-ui/react";
+import {
+  InputLeftElement,
+  Input,
+  InputGroup,
+  Icon,
+  Avatar,
+  Wrap,
+  WrapItem,
+} from "@chakra-ui/react";
 
 import { HeaderContainer, FooterContainer, Wrapper, Holder } from "./styles";
 
@@ -39,6 +47,15 @@ const Layout = ({ children }: Props) => {
           <Icon as={BsFillBellFill} color="white" w={6} h={5} />
           <Icon as={BsFillChatLeftFill} color="white" w={6} h={5} />
           <Icon as={BsGearFill} color="white" w={6} h={5} />
+
+          <Wrap>
+            <WrapItem>
+              <Avatar
+                name="Micaelli Medeiros"
+                src="https://avatars.githubusercontent.com/u/54600663?v=4"
+              />
+            </WrapItem>
+          </Wrap>
         </Holder>
       </HeaderContainer>
 
