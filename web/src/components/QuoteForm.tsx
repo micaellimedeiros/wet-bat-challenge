@@ -74,7 +74,7 @@ const QuoteForm: React.FC = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <Card maxW="md">
+      <Card>
         <CardHeader>
           <Heading color="#5f6cb0" size="md">
             <ArrowRightIcon h={4} color="teal" marginRight="1" />
@@ -85,7 +85,7 @@ const QuoteForm: React.FC = () => {
         <Divider />
 
         <CardBody>
-          <SimpleGrid columns={2} spacing={3}>
+          <SimpleGrid columns={4} spacing={3}>
             <FormControl>
               <Textarea
                 resize="none"
@@ -151,10 +151,10 @@ const QuoteForm: React.FC = () => {
             </FormControl>
 
             <FormControl>
-              <Textarea
-                resize="none"
+              <Input
+                type="number"
                 variant="filled"
-                size="sm"
+                height="80px"
                 placeholder="People"
                 value={quoteData.number_of_travelers}
                 onChange={(e) =>

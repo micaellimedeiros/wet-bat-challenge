@@ -17,7 +17,13 @@ import {
   WrapItem,
 } from "@chakra-ui/react";
 
-import { HeaderContainer, FooterContainer, Wrapper, Holder } from "./styles";
+import {
+  HeaderContainer,
+  FooterContainer,
+  Wrapper,
+  Holder,
+  ChildrenContent,
+} from "./styles";
 
 type Props = {
   children?: ReactNode;
@@ -59,7 +65,7 @@ const Layout = ({ children }: Props) => {
         </Holder>
       </HeaderContainer>
 
-      {children}
+      <ChildrenContent>{children}</ChildrenContent>
 
       <FooterContainer>
         <Wrapper>

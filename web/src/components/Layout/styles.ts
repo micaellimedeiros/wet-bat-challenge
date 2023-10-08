@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const HeaderContainer = styled.div`
-  max-width: 1980px;
   width: 100%;
 
   margin: 0 auto;
@@ -27,7 +26,6 @@ export const Holder = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-
 `;
 
 export const FooterContainer = styled.footer`
@@ -44,4 +42,15 @@ export const Wrapper = styled.div`
   text-align: center;
 
   font-weight: 300;
+`;
+
+export const ChildrenContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  /* justify-content: center; */
+  min-height: 100vh;
+
+  margin: 2rem;
+  gap: 2rem;
 `;
