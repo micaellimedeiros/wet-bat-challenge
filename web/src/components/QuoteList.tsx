@@ -2,13 +2,21 @@
 import React, { useEffect, useState } from "react";
 import api from "../api";
 
+import { AtSignIcon } from "@chakra-ui/icons";
 import {
-  Box,
+  Card,
+  CardHeader,
+  Heading,
+  Table,
+  TableContainer,
+  Tbody,
+  Td,
   Text,
-  UnorderedList,
+  Th,
+  Thead,
+  Tr,
+  useToast,
   Divider,
-  Stack,
-  Input,
 } from "@chakra-ui/react";
 
 interface Quote {
@@ -23,6 +31,8 @@ interface Quote {
 }
 
 const QuoteList: React.FC = () => {
+  const toast = useToast();
+
   const [quotes, setQuotes] = useState<Quote[]>([]);
 
   useEffect(() => {
@@ -31,18 +41,75 @@ const QuoteList: React.FC = () => {
         const response = await api.get("/quotes");
         setQuotes(response.data);
 
-        console.log("Quotes:", response.data);
+        toast({
+          title: "Success",
+          description: "Quotes fetched successfully",
+          status: "success",
+          duration: 9000,
+          isClosable: true,
+        });
       } catch (error) {
-        console.error("Error fetching quotes:", error);
+        toast({
+          title: "Error",
+          description: "Error fetching quotes",
+          status: "error",
+          duration: 9000,
+          isClosable: true,
+        });
       }
     };
 
     fetchQuotes();
-  }, []);
+  }, [toast]);
 
   return (
-    <div>
-      <Box>
+    <Card maxW="content">
+      <CardHeader>
+        <Heading color="#5f6cb0" size="md">
+          <AtSignIcon h={4} color="teal" marginRight="1" />
+          List quotes
+        </Heading>
+      </CardHeader>
+
+      <Divider />
+
+      <TableContainer>
+        <Table size="md">
+          {quotes.length > 0 ? (
+            <>
+              <Thead>
+                <Tr>
+                  <Th>Location</Th>
+                  <Th>Destination</Th>
+                  <Th>Departure</Th>
+                  <Th>Return</Th>
+                  <Th>Travelers</Th>
+                  <Th>Transportation</Th>
+                  <Th>Information</Th>
+                </Tr>
+              </Thead>
+              <Tbody>
+                {quotes.map((quote) => (
+                  <Tr color="gray.600" key={quote.id}>
+                    <Td>{quote.departure_location}</Td>
+                    <Td>{quote.destination_location}</Td>
+                    <Td>
+                      {new Date(quote.departure_date).toLocaleDateString()}
+                    </Td>
+                    <Td>{new Date(quote.return_date).toLocaleDateString()}</Td>
+                    <Td>{quote.number_of_travelers}</Td>
+                    <Td>{quote.transportation}</Td>
+                    <Td>{quote.contact_information}</Td>
+                  </Tr>
+                ))}
+              </Tbody>
+            </>
+          ) : (
+            <Text color="gray.500">No quotes found</Text>
+          )}
+        </Table>
+      </TableContainer>
+      {/* <Box>
         <Text fontSize="2xl">Quotes</Text>
         <Divider />
         <UnorderedList>
@@ -85,8 +152,8 @@ const QuoteList: React.FC = () => {
             </Stack>
           ))}
         </UnorderedList>
-      </Box>
-    </div>
+      </Box> */}
+    </Card>
   );
 };
 
