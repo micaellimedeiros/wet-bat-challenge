@@ -1,10 +1,27 @@
-// src/components/QuoteForm.tsx
 import React, { useState } from "react";
 import api from "../api";
 
-import { Button, FormControl, FormLabel, Input, Stack } from "@chakra-ui/react";
+import {
+  Button,
+  Card,
+  CardBody,
+  CardHeader,
+  Divider,
+  FormControl,
+  Heading,
+  Input,
+  SimpleGrid,
+  Textarea,
+  useToast,
+} from "@chakra-ui/react";
+
+import { ArrowRightIcon } from "@chakra-ui/icons";
 
 const QuoteForm: React.FC = () => {
+  const toast = useToast();
+
+  const [loading, setLoading] = useState(false);
+
   const [quoteData, setQuoteData] = useState({
     departure_location: "",
     destination_location: "",
@@ -19,120 +36,177 @@ const QuoteForm: React.FC = () => {
     e.preventDefault();
 
     try {
-      console.log(quoteData);
-      const request = await api.post("/quotes", quoteData);
+      setLoading(true);
 
-      console.log("Quote:", request.data);
+      await api.post("/quotes", quoteData);
 
-      // setQuoteData({
-      //   departure_location: "",
-      //   destination_location: "",
-      //   departure_date: "",
-      //   return_date: "",
-      //   number_of_travelers: 0,
-      //   transportation: "",
-      //   contact_information: "",
-      // });
-      alert("Quote submitted successfully!");
+      setQuoteData({
+        departure_location: "",
+        destination_location: "",
+        departure_date: "",
+        return_date: "",
+        number_of_travelers: 0,
+        transportation: "",
+        contact_information: "",
+      });
+
+      toast({
+        title: "Success",
+        description: "Quote created successfully",
+        status: "success",
+        duration: 6000,
+        isClosable: true,
+        position: "top",
+      });
     } catch (error) {
-      console.log("Error submitting quote:", error);
-      alert("An error occurred while submitting the quote.");
+      toast({
+        title: "Error",
+        description: "Error creating quote",
+        status: "error",
+        duration: 6000,
+        isClosable: true,
+        position: "top",
+      });
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      <Stack spacing={3}>
-        <FormControl>
-          <FormLabel>departure_location</FormLabel>
-          <Input
-            type="text"
-            value={quoteData.departure_location}
-            onChange={(e) =>
-              setQuoteData({ ...quoteData, departure_location: e.target.value })
-            }
-          />
-        </FormControl>
+      <Card maxW="md">
+        <CardHeader>
+          <Heading color="#5f6cb0" size="md">
+            <ArrowRightIcon h={4} color="teal" marginRight="1" />
+            Quick quote
+          </Heading>
+        </CardHeader>
 
-        <FormControl>
-          <FormLabel>destination_location</FormLabel>
-          <Input
-            type="text"
-            value={quoteData.destination_location}
-            onChange={(e) =>
-              setQuoteData({
-                ...quoteData,
-                destination_location: e.target.value,
-              })
-            }
-          />
-        </FormControl>
+        <Divider />
 
-        <FormControl>
-          <FormLabel>Departure Date</FormLabel>
-          <Input
-            type="date"
-            value={quoteData.departure_date}
-            onChange={(e) =>
-              setQuoteData({ ...quoteData, departure_date: e.target.value })
-            }
-          />
-        </FormControl>
+        <CardBody>
+          <SimpleGrid columns={2} spacing={3}>
+            <FormControl>
+              <Textarea
+                resize="none"
+                variant="filled"
+                size="sm"
+                value={quoteData.departure_location}
+                placeholder="From"
+                onChange={(e) =>
+                  setQuoteData({
+                    ...quoteData,
+                    departure_location: e.target.value,
+                  })
+                }
+              />
+            </FormControl>
 
-        <FormControl>
-          <FormLabel>Return Date</FormLabel>
-          <Input
-            type="date"
-            value={quoteData.return_date}
-            onChange={(e) =>
-              setQuoteData({ ...quoteData, return_date: e.target.value })
-            }
-          />
-        </FormControl>
+            <FormControl>
+              <Textarea
+                resize="none"
+                variant="filled"
+                size="sm"
+                placeholder="Destination"
+                value={quoteData.destination_location}
+                onChange={(e) =>
+                  setQuoteData({
+                    ...quoteData,
+                    destination_location: e.target.value,
+                  })
+                }
+              />
+            </FormControl>
 
-        <FormControl>
-          <FormLabel>Number of Travelers</FormLabel>
-          <Input
-            type="number"
-            value={quoteData.number_of_travelers}
-            onChange={(e) =>
-              setQuoteData({
-                ...quoteData,
-                number_of_travelers: Number(e.target.value),
-              })
-            }
-          />
-        </FormControl>
+            <FormControl>
+              <Input
+                type="date"
+                variant="filled"
+                height="80px"
+                placeholder="Depart date"
+                value={quoteData.departure_date}
+                onChange={(e) =>
+                  setQuoteData({
+                    ...quoteData,
+                    departure_date: e.target.value,
+                  })
+                }
+              />
+            </FormControl>
 
-        <FormControl>
-          <FormLabel>Transportation</FormLabel>
-          <Input
-            type="text"
-            value={quoteData.transportation}
-            onChange={(e) =>
-              setQuoteData({ ...quoteData, transportation: e.target.value })
-            }
-          />
-        </FormControl>
+            <FormControl>
+              <Input
+                type="date"
+                variant="filled"
+                height="80px"
+                placeholder="Return date"
+                value={quoteData.return_date}
+                onChange={(e) =>
+                  setQuoteData({
+                    ...quoteData,
+                    return_date: e.target.value,
+                  })
+                }
+              />
+            </FormControl>
 
-        <FormControl>
-          <FormLabel>Contact Info</FormLabel>
-          <Input
-            type="text"
-            value={quoteData.contact_information}
-            onChange={(e) =>
-              setQuoteData({
-                ...quoteData,
-                contact_information: e.target.value,
-              })
-            }
-          />
-        </FormControl>
+            <FormControl>
+              <Textarea
+                resize="none"
+                variant="filled"
+                size="sm"
+                placeholder="People"
+                value={quoteData.number_of_travelers}
+                onChange={(e) =>
+                  setQuoteData({
+                    ...quoteData,
+                    number_of_travelers: Number(e.target.value),
+                  })
+                }
+              />
+            </FormControl>
 
-        <Button type="submit" colorScheme="green">
-          Submit Quote
-        </Button>
-      </Stack>
+            <FormControl>
+              <Textarea
+                resize="none"
+                variant="filled"
+                size="sm"
+                placeholder="Transportation"
+                value={quoteData.transportation}
+                onChange={(e) =>
+                  setQuoteData({ ...quoteData, transportation: e.target.value })
+                }
+              />
+            </FormControl>
+
+            <FormControl>
+              <Textarea
+                resize="none"
+                variant="filled"
+                size="sm"
+                placeholder="Name"
+                value={quoteData.contact_information}
+                onChange={(e) =>
+                  setQuoteData({
+                    ...quoteData,
+                    contact_information: e.target.value,
+                  })
+                }
+              />
+            </FormControl>
+
+            <Button
+              isLoading={loading}
+              loadingText="Creating..."
+              type="submit"
+              colorScheme="teal"
+              borderRadius="20px"
+            >
+              Create a quote
+            </Button>
+          </SimpleGrid>
+        </CardBody>
+      </Card>
     </form>
   );
 };
