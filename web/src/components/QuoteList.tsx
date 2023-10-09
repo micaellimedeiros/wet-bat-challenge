@@ -21,7 +21,6 @@ import {
   SkeletonCircle,
   SkeletonText,
 } from "@chakra-ui/react";
-import console from "console";
 
 interface Quote {
   id: number;
@@ -55,8 +54,6 @@ const QuoteList: React.FC = () => {
           status: "error",
           isClosable: true,
         });
-
-        console.error(error);
       } finally {
         setLoading(false);
       }
