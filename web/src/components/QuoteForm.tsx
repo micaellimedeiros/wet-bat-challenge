@@ -9,7 +9,9 @@ import {
   Divider,
   FormControl,
   Heading,
+  Text,
   Input,
+  Box,
   SimpleGrid,
   Textarea,
   useToast,
@@ -97,6 +99,9 @@ const QuoteForm: React.FC = () => {
         <CardBody>
           <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} spacing={6}>
             <FormControl>
+              <Text mb="8px" color="gray.500">
+                Departure Location
+              </Text>
               <Textarea
                 resize="none"
                 variant="filled"
@@ -113,6 +118,9 @@ const QuoteForm: React.FC = () => {
             </FormControl>
 
             <FormControl>
+              <Text mb="8px" color="gray.500">
+                Destination Location
+              </Text>
               <Textarea
                 resize="none"
                 variant="filled"
@@ -129,6 +137,9 @@ const QuoteForm: React.FC = () => {
             </FormControl>
 
             <FormControl>
+              <Text mb="8px" color="gray.500">
+                Departure Date
+              </Text>
               <Input
                 type="date"
                 variant="filled"
@@ -145,6 +156,9 @@ const QuoteForm: React.FC = () => {
             </FormControl>
 
             <FormControl>
+              <Text mb="8px" color="gray.500">
+                Return Date
+              </Text>
               <Input
                 type="date"
                 variant="filled"
@@ -161,6 +175,9 @@ const QuoteForm: React.FC = () => {
             </FormControl>
 
             <FormControl>
+              <Text mb="8px" color="gray.500">
+                Number of Travelers
+              </Text>
               <Input
                 type="number"
                 variant="filled"
@@ -177,6 +194,9 @@ const QuoteForm: React.FC = () => {
             </FormControl>
 
             <FormControl>
+              <Text mb="8px" color="gray.500">
+                Transportation
+              </Text>
               <Textarea
                 resize="none"
                 variant="filled"
@@ -190,6 +210,9 @@ const QuoteForm: React.FC = () => {
             </FormControl>
 
             <FormControl>
+              <Text mb="8px" color="gray.500">
+                Contact Information
+              </Text>
               <Textarea
                 resize="none"
                 variant="filled"
@@ -205,15 +228,17 @@ const QuoteForm: React.FC = () => {
               />
             </FormControl>
 
-            <Button
-              isLoading={loading}
-              loadingText="Creating..."
-              type="submit"
-              colorScheme="teal"
-              borderRadius="20px"
-            >
-              Create a quote
-            </Button>
+            <Box display="flex" alignItems="center">
+              <Button
+                isLoading={loading}
+                loadingText="Creating..."
+                type="submit"
+                colorScheme="teal"
+                borderRadius="20px"
+              >
+                Create a quote
+              </Button>
+            </Box>
           </SimpleGrid>
         </CardBody>
       </Card>
