@@ -2,6 +2,11 @@
 
 Welcome to the Wet Bat World Adventure full-stack prototype. This is an example project that demonstrates the creation of a web application with Create, Read, Delete functionalities using TypeScript, React, Node.js, PostgreSQL, Chakra UI and Styled Components.
 
+Project Structure
+
+    backend: Contains Node.js server code using Express and Knex to interact with the PostgreSQL database.
+    frontend: Contains the React frontend application code, styled with Chakra UI and Styled Components.
+
 ## 👷‍♂️ Run the project
 
 Make sure you have the following tools and technologies installed on your system:
@@ -58,11 +63,6 @@ Start the frontend development server:
 The frontend application will run at http://localhost:3000.
 
 You can use the app to create, view and delete travel restrictions. Make sure the server is running before using the application.
-
-Project Structure
-
-    backend: Contains Node.js server code using Express and Knex to interact with the PostgreSQL database.
-    frontend: Contains the React frontend application code, styled with Chakra UI and Styled Components.
 
 ## ❓ Structure decisions:
 
