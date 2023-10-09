@@ -37,11 +37,14 @@ const QuoteList: React.FC = () => {
   const toast = useToast();
   const navigate = useNavigate();
 
+  const [loading, setLoading] = useState(false);
   const [quotes, setQuotes] = useState<Quote[]>([]);
 
   useEffect(() => {
     const fetchQuotes = async () => {
       try {
+        setLoading(true);
+
         const response = await api.get("/quotes");
         setQuotes(response.data);
       } catch (error) {
@@ -51,6 +54,8 @@ const QuoteList: React.FC = () => {
           status: "error",
           isClosable: true,
         });
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -84,14 +89,11 @@ const QuoteList: React.FC = () => {
                 <Th>
                   <div />
                 </Th>
-                {/* <Th>Travelers</Th>
-                  <Th>Transportation</Th>
-                  <Th>Information</Th> */}
               </Tr>
             </Thead>
 
             <Tbody>
-              {quotes.length === 0 ? (
+              {loading && (
                 <Tr>
                   <Td>
                     <SkeletonText noOfLines={1} spacing="4" />
@@ -109,6 +111,14 @@ const QuoteList: React.FC = () => {
                     <SkeletonCircle size="10" />
                   </Td>
                 </Tr>
+              )}
+
+              {!loading && quotes.length === 0 ? (
+                <Tr>
+                  <Td textAlign="center" colSpan={5}>
+                    Create a new quote
+                  </Td>
+                </Tr>
               ) : (
                 quotes.map((quote) => (
                   <Tr color="gray.500" key={quote.id}>
@@ -123,9 +133,6 @@ const QuoteList: React.FC = () => {
                         <ExternalLinkIcon color="teal" />
                       </Button>
                     </Td>
-                    {/* <Td>{quote.number_of_travelers}</Td>
-                      <Td>{quote.transportation}</Td>
-                      <Td>{quote.contact_information}</Td> */}
                   </Tr>
                 ))
               )}
