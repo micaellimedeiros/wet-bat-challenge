@@ -2,12 +2,11 @@
     <img src="https://github.com/micaellimedeiros/wet-bat-challenge/assets/54600663/780f8569-a505-4af9-9c15-3e7f8904dcca">
 </div>
 
-
 # Wet Bat World Adventure - Full-Stack Prototype
 
-Welcome to the Wet Bat World Adventure full-stack prototype. This is an example project that demonstrates the creation of a web application with Create, Read, Delete functionalities using TypeScript, React, Node.js, PostgreSQL, Chakra UI and Styled Components.
+<i>Welcome to the Wet Bat World Adventure full-stack prototype. This is an example project that demonstrates the creation of a web application with Create, Read, Delete functionalities using TypeScript, React, Node.js, PostgreSQL, Chakra UI and Styled Components.</i>
 
-Project Structure
+## ⚒️ Project Structure
 
     backend: Contains Node.js server code using Express and Knex to interact with the PostgreSQL database.
     frontend: Contains the React frontend application code, styled with Chakra UI and Styled Components.
