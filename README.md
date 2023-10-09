@@ -57,7 +57,7 @@ Start the frontend development server:
 
 The frontend application will run at http://localhost:3000.
 
-You can use the app to create, view and delete travel restrictions. Make sure the server is running before using the application.You can use the app to create, view and delete travel restrictions. Make sure the server is running before using the application.
+You can use the app to create, view and delete travel restrictions. Make sure the server is running before using the application.
 
 Project Structure
 
