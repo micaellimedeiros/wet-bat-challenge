@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const HeaderContainer = styled.div`
   width: 100%;
@@ -26,18 +26,13 @@ export const HeaderContainer = styled.div`
     justify-content: center;
 
     height: 10rem;
-
-
   }
-
 `;
 
 export const Holder = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-
-
 `;
 
 export const FooterContainer = styled.footer`
@@ -60,8 +55,6 @@ export const Wrapper = styled.div`
 
 export const ChildrenContent = styled.div`
   display: flex;
-  /* flex-direction: column; */
-  /* align-items: center; */
   justify-content: center;
   min-height: 100vh;
 
