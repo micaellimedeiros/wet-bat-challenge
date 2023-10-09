@@ -1,6 +1,6 @@
 # Wet Bat World Adventure - Full-Stack Prototype
 
-Welcome to the Wet Bat World Adventure full-stack prototype. This is an example project that demonstrates the creation of a web application with Create, Read, Delete) functionalities using TypeScript, React, Node.js, PostgreSQL, Chakra UI and Styled Components.
+Welcome to the Wet Bat World Adventure full-stack prototype. This is an example project that demonstrates the creation of a web application with Create, Read, Delete functionalities using TypeScript, React, Node.js, PostgreSQL, Chakra UI and Styled Components.
 
 ## 👷‍♂️ Run the project
 
