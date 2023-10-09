@@ -1,8 +1,9 @@
-// src/components/QuoteList.tsx
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import api from "../api";
 
-import { AtSignIcon } from "@chakra-ui/icons";
+import { AtSignIcon, ExternalLinkIcon } from "@chakra-ui/icons";
 import {
   Card,
   CardHeader,
@@ -17,6 +18,7 @@ import {
   Tr,
   useToast,
   Divider,
+  Button,
 } from "@chakra-ui/react";
 
 interface Quote {
@@ -32,6 +34,7 @@ interface Quote {
 
 const QuoteList: React.FC = () => {
   const toast = useToast();
+  const navigate = useNavigate();
 
   const [quotes, setQuotes] = useState<Quote[]>([]);
 
@@ -83,9 +86,12 @@ const QuoteList: React.FC = () => {
                   <Th>Destination</Th>
                   <Th>Departure</Th>
                   <Th>Return</Th>
-                  <Th>Travelers</Th>
+                  <Th>
+                    <div />
+                  </Th>
+                  {/* <Th>Travelers</Th>
                   <Th>Transportation</Th>
-                  <Th>Information</Th>
+                  <Th>Information</Th> */}
                 </Tr>
               </Thead>
               <Tbody>
@@ -97,9 +103,14 @@ const QuoteList: React.FC = () => {
                       {new Date(quote.departure_date).toLocaleDateString()}
                     </Td>
                     <Td>{new Date(quote.return_date).toLocaleDateString()}</Td>
-                    <Td>{quote.number_of_travelers}</Td>
+                    <Td>
+                      <Button onClick={() => navigate(`/quote/${quote.id}`)}>
+                        <ExternalLinkIcon color="teal" />
+                      </Button>
+                    </Td>
+                    {/* <Td>{quote.number_of_travelers}</Td>
                     <Td>{quote.transportation}</Td>
-                    <Td>{quote.contact_information}</Td>
+                    <Td>{quote.contact_information}</Td> */}
                   </Tr>
                 ))}
               </Tbody>
@@ -109,50 +120,6 @@ const QuoteList: React.FC = () => {
           )}
         </Table>
       </TableContainer>
-      {/* <Box>
-        <Text fontSize="2xl">Quotes</Text>
-        <Divider />
-        <UnorderedList>
-          {quotes.map((quote) => (
-            <Stack key={quote.id} spacing={3}>
-              <Text mb="8px" color="gray.500">
-                Departure location
-              </Text>
-              <Input isReadOnly value={quote.departure_location} />
-
-              <Text mb="8px" color="gray.500">
-                Destination location
-              </Text>
-              <Input isReadOnly value={quote.destination_location} />
-
-              <Text mb="8px" color="gray.500">
-                Departure date
-              </Text>
-              <Input isReadOnly value={quote.departure_date} />
-
-              <Text mb="8px" color="gray.500">
-                Return date
-              </Text>
-              <Input isReadOnly value={quote.return_date} />
-
-              <Text mb="8px" color="gray.500">
-                Number of travelers
-              </Text>
-              <Input isReadOnly value={quote.number_of_travelers} />
-
-              <Text mb="8px" color="gray.500">
-                Transportation
-              </Text>
-              <Input isReadOnly value={quote.transportation} />
-
-              <Text mb="8px" color="gray.500">
-                Contact information
-              </Text>
-              <Input isReadOnly value={quote.contact_information} />
-            </Stack>
-          ))}
-        </UnorderedList>
-      </Box> */}
     </Card>
   );
 };

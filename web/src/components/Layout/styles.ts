@@ -46,10 +46,10 @@ export const Wrapper = styled.div`
 
 export const ChildrenContent = styled.div`
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   /* align-items: center; */
-  /* justify-content: center; */
-  min-height: 100vh;
+  justify-content: center;
+  /* min-height: 100vh; */
 
   margin: 2rem;
   gap: 2rem;

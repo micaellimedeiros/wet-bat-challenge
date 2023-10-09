@@ -1,15 +1,17 @@
 import React from "react";
 
-import QuoteList from "./components/QuoteList";
-import QuoteForm from "./components/QuoteForm";
 import Layout from "./components/Layout";
+import Routes from "./routes";
+
+import { BrowserRouter } from "react-router-dom";
 
 const App: React.FC = () => {
   return (
-    <Layout>
-      <QuoteForm />
-      <QuoteList />
-    </Layout>
+    <BrowserRouter>
+      <Layout>
+        <Routes />
+      </Layout>
+    </BrowserRouter>
   );
 };
 

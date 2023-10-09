@@ -85,7 +85,7 @@ const QuoteForm: React.FC = () => {
         <Divider />
 
         <CardBody>
-          <SimpleGrid columns={4} spacing={3}>
+          <SimpleGrid columns={2} spacing={3}>
             <FormControl>
               <Textarea
                 resize="none"
