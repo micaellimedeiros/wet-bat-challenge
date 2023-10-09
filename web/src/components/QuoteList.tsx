@@ -21,6 +21,7 @@ import {
   SkeletonCircle,
   SkeletonText,
 } from "@chakra-ui/react";
+import console from "console";
 
 interface Quote {
   id: number;
@@ -50,10 +51,12 @@ const QuoteList: React.FC = () => {
       } catch (error) {
         toast({
           title: "Error",
-          description: "Error fetching quotes",
+          description: `Error fetching quotes: ${error}`,
           status: "error",
           isClosable: true,
         });
+
+        console.error(error);
       } finally {
         setLoading(false);
       }
