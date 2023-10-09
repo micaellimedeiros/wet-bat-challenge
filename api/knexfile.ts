@@ -1,13 +1,9 @@
+require('dotenv').config();
 import { Knex } from 'knex';
 
 export const development: Knex.Config = {
   client: 'pg',
-  connection: {
-    host: 'localhost',
-    user: 'docker',
-    password: 'docker',
-    database: 'app',
-  },
+  connection: process.env.DB_URL,
   migrations: {
     directory: './src/database/migrations',
   },
@@ -15,3 +11,5 @@ export const development: Knex.Config = {
     directory: './src/database/seeds',
   },
 };
+
+
