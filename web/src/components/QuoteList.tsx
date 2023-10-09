@@ -78,7 +78,13 @@ const QuoteList: React.FC = () => {
       <Divider />
 
       <TableContainer>
-        <Table size="lg">
+        <Table
+          size={{
+            base: "sm",
+            md: "md",
+            lg: "lg",
+          }}
+        >
           <>
             <Thead>
               <Tr>

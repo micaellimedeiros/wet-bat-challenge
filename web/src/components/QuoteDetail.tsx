@@ -99,7 +99,7 @@ const QuoteDetail: React.FC = () => {
       <Divider />
 
       <CardBody>
-        <SimpleGrid columns={3} spacing={6}>
+        <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} spacing={6}>
           {!quote ? (
             <>
               <Skeleton>

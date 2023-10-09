@@ -20,12 +20,24 @@ export const HeaderContainer = styled.div`
   svg {
     margin: 0 1rem;
   }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    justify-content: center;
+
+    height: 10rem;
+
+
+  }
+
 `;
 
 export const Holder = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+
+
 `;
 
 export const FooterContainer = styled.footer`
