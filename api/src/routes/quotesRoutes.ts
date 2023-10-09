@@ -8,7 +8,6 @@ router.get('/quotes', async (req: Request, res: Response) => {
   try {
     const quotes = await knex('quotes').select('*');
 
-    console.log(quotes);
     res.json(quotes);
   } catch (error) {
     res.status(500).json({ error });
@@ -46,20 +45,14 @@ router.post(
   async (req: Request, res: Response) => {
     const errors = validationResult(req);
 
-    console.log(errors)
-
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
 
     const body = req.body;
 
-    console.log(body)
-
     try {
       const newQuote = await knex('quotes').insert({ ...body });
-
-      console.log(newQuote);
 
       res.status(201).json({ message: 'Quote created successfully', id: newQuote[0] });
     } catch (error) {
@@ -80,7 +73,6 @@ router.delete('/quotes/:id', async (req: Request, res: Response) => {
 
     res.json({ message: 'Quote deleted successfully' });
   } catch (error) {
-    console.error(error);
     res.status(500).json({ error });
   }
 });

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 
 import { useNavigate, useParams } from "react-router-dom";
 
@@ -37,6 +37,7 @@ const QuoteDetail: React.FC = () => {
 
   const { id } = useParams<{ id: string }>();
 
+  const [loading, setLoading] = useState(false);
   const [quote, setQuote] = useState<Quote | null>(null);
 
   useEffect(() => {
@@ -56,6 +57,31 @@ const QuoteDetail: React.FC = () => {
 
     fetchQuote();
   }, [toast, id]);
+
+  const handleDelete = useCallback(async () => {
+    try {
+      setLoading(true);
+
+      await api.delete(`/quotes/${id}`);
+      toast({
+        title: "Success",
+        description: "Quote deleted",
+        status: "success",
+        isClosable: true,
+      });
+
+      navigate("/");
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Error deleting quote",
+        status: "error",
+        isClosable: true,
+      });
+    } finally {
+      setLoading(false);
+    }
+  }, [toast, id, navigate]);
 
   return (
     <Card maxW="fit-content">
@@ -146,6 +172,18 @@ const QuoteDetail: React.FC = () => {
             </>
           )}
         </SimpleGrid>
+
+        <Box display="flex" justifyContent="flex-end">
+          <Button
+            colorScheme="red"
+            onClick={() => handleDelete()}
+            isLoading={loading}
+            marginTop="4"
+            size="sm"
+          >
+            Delete quote
+          </Button>
+        </Box>
       </CardBody>
     </Card>
   );
