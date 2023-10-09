@@ -1,23 +1,23 @@
 # wet-bat-challenge
 
-Wet Bat World Adventure - Protótipo Full-Stack
+Wet Bat World Adventure - Full-Stack Prototype
 
-Bem-vindo ao protótipo full-stack do Wet Bat World Adventure. Este é um projeto de exemplo que demonstra a criação de um aplicativo web com funcionalidades de CRUD (Create, Read, Update, Delete) usando TypeScript, React, Node.js, PostgreSQL, Chakra UI e Styled Components. 
+Welcome to the Wet Bat World Adventure full-stack prototype. This is an example project that demonstrates the creation of a web application with CRUD (Create, Read, Update, Delete) functionalities using TypeScript, React, Node.js, PostgreSQL, Chakra UI and Styled Components.
 
-Pré-requisitos
+Prerequisites
 
-Certifique-se de ter as seguintes ferramentas e tecnologias instaladas em seu sistema:
+Make sure you have the following tools and technologies installed on your system:
 
-    Node.js: versão 14 ou superior.
-    npm: normalmente é instalado automaticamente com o Node.js.
-    PostgreSQL: um servidor PostgreSQL instalado e em execução.
+    Node.js: version 14 or higher.
+    npm: Typically installed automatically with Node.js.
+    PostgreSQL: An installed and running PostgreSQL server.
     
 
-Configuração do Banco de Dados
+Database Configuration
 
-    Crie um banco de dados PostgreSQL chamado wetbat_db.
+    Create a PostgreSQL database called wetbat_db.
 
-    Copie o arquivo .env.example para .env e atualize as variáveis de ambiente com as informações do seu banco de dados:
+    Copy the .env.example file to .env and update the environment variables with your database information:
 
 ```
 DB_HOST=localhost
@@ -27,50 +27,49 @@ DB_PASSWORD=sua_senha
 DB_DATABASE=wetbat_db
 ```
 
-Execute as migrações para criar as tabelas necessárias no banco de dados:
+Run the migrations to create the tables allowed in the database:
 
     npx knex migrate:latest
 
-Configuração do Backend
+Backend Configuration
 
-    Navegue até o diretório backend:
+    Navigate to the backend directory:
     cd api
 
-Instale as dependências do backend:
+Install backend dependencies:
 
 
     npm install
 
-Inicie o servidor backend:
+Start the server backend:
 
     npm start
 
-O servidor backend estará em execução em http://localhost:3333.
+The backend server will be running at http://localhost:3333.
 
-Configuração do Frontend
+Frontend Configuration
 
-    Navegue até o diretório frontend:
+    Navigate to the frontend directory:
 
     cd web
 
-Instale as dependências do frontend:
+Install frontend dependencies:
 
     npm install
 
-Inicie o servidor de desenvolvimento do frontend:
+Start the frontend development server:
 
     npm start
 
-O aplicativo frontend estará em execução em http://localhost:3000.
-Uso
+The frontend application will run at http://localhost:3000.
 
-Você pode usar o aplicativo para criar, visualizar e excluir citações de viagem. Certifique-se de que o servidor backend esteja em execução antes de usar o aplicativo.
+You can use the app to create, view and delete travel restrictions. Make sure the server is running before using the application.You can use the app to create, view and delete travel restrictions. Make sure the server is running before using the application.
 
-Estrutura do Projeto
+Project Structure
 
-    backend: Contém o código do servidor Node.js usando Express e Knex para interagir com o banco de dados PostgreSQL.
+    backend: Contains Node.js server code using Express and Knex to interact with the PostgreSQL database.
 
-    frontend: Contém o código do aplicativo frontend React, estilizado com Chakra UI e Styled Components.
+    frontend: Contains the React frontend application code, styled with Chakra UI and Styled Components.
 
 ![image](https://github.com/micaellimedeiros/wet-bat-challenge/assets/54600663/a67f8060-a02c-439e-a3e6-9be2a300710f)
 
