@@ -12,13 +12,14 @@ import {
   TableContainer,
   Tbody,
   Td,
-  Text,
   Th,
   Thead,
   Tr,
   useToast,
   Divider,
   Button,
+  SkeletonCircle,
+  SkeletonText,
 } from "@chakra-ui/react";
 
 interface Quote {
@@ -43,20 +44,11 @@ const QuoteList: React.FC = () => {
       try {
         const response = await api.get("/quotes");
         setQuotes(response.data);
-
-        toast({
-          title: "Success",
-          description: "Quotes fetched successfully",
-          status: "success",
-          duration: 9000,
-          isClosable: true,
-        });
       } catch (error) {
         toast({
           title: "Error",
           description: "Error fetching quotes",
           status: "error",
-          duration: 9000,
           isClosable: true,
         });
       }
@@ -66,37 +58,60 @@ const QuoteList: React.FC = () => {
   }, [toast]);
 
   return (
-    <Card maxW="content">
-      <CardHeader>
+    <Card maxW="fit-content">
+      <CardHeader display="flex" justifyContent="space-between">
         <Heading color="#5f6cb0" size="md">
           <AtSignIcon h={4} color="teal" marginRight="1" />
           List quotes
         </Heading>
+
+        <Button colorScheme="teal" onClick={() => navigate("/create")}>
+          New Quote
+        </Button>
       </CardHeader>
 
       <Divider />
 
       <TableContainer>
-        <Table size="md">
-          {quotes.length > 0 ? (
-            <>
-              <Thead>
-                <Tr>
-                  <Th>Location</Th>
-                  <Th>Destination</Th>
-                  <Th>Departure</Th>
-                  <Th>Return</Th>
-                  <Th>
-                    <div />
-                  </Th>
-                  {/* <Th>Travelers</Th>
+        <Table size="lg">
+          <>
+            <Thead>
+              <Tr>
+                <Th>Location</Th>
+                <Th>Destination</Th>
+                <Th>Departure</Th>
+                <Th>Return</Th>
+                <Th>
+                  <div />
+                </Th>
+                {/* <Th>Travelers</Th>
                   <Th>Transportation</Th>
                   <Th>Information</Th> */}
+              </Tr>
+            </Thead>
+
+            <Tbody>
+              {quotes.length === 0 ? (
+                <Tr>
+                  <Td>
+                    <SkeletonText noOfLines={1} spacing="4" />
+                  </Td>
+                  <Td>
+                    <SkeletonText noOfLines={1} spacing="4" />
+                  </Td>
+                  <Td>
+                    <SkeletonText noOfLines={1} spacing="4" />
+                  </Td>
+                  <Td>
+                    <SkeletonText noOfLines={1} spacing="4" />
+                  </Td>
+                  <Td>
+                    <SkeletonCircle size="10" />
+                  </Td>
                 </Tr>
-              </Thead>
-              <Tbody>
-                {quotes.map((quote) => (
-                  <Tr color="gray.600" key={quote.id}>
+              ) : (
+                quotes.map((quote) => (
+                  <Tr color="gray.500" key={quote.id}>
                     <Td>{quote.departure_location}</Td>
                     <Td>{quote.destination_location}</Td>
                     <Td>
@@ -109,15 +124,13 @@ const QuoteList: React.FC = () => {
                       </Button>
                     </Td>
                     {/* <Td>{quote.number_of_travelers}</Td>
-                    <Td>{quote.transportation}</Td>
-                    <Td>{quote.contact_information}</Td> */}
+                      <Td>{quote.transportation}</Td>
+                      <Td>{quote.contact_information}</Td> */}
                   </Tr>
-                ))}
-              </Tbody>
-            </>
-          ) : (
-            <Text color="gray.500">No quotes found</Text>
-          )}
+                ))
+              )}
+            </Tbody>
+          </>
         </Table>
       </TableContainer>
     </Card>

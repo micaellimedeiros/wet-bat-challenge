@@ -16,9 +16,11 @@ import {
 } from "@chakra-ui/react";
 
 import { ArrowRightIcon } from "@chakra-ui/icons";
+import { useNavigate } from "react-router-dom";
 
 const QuoteForm: React.FC = () => {
   const toast = useToast();
+  const navigate = useNavigate();
 
   const [loading, setLoading] = useState(false);
 
@@ -34,6 +36,10 @@ const QuoteForm: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (quoteData.departure_location === "") {
+      return;
+    }
 
     try {
       setLoading(true);
@@ -74,18 +80,22 @@ const QuoteForm: React.FC = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <Card>
-        <CardHeader>
+      <Card maxW="fit-content">
+        <CardHeader display="flex" justifyContent="space-between">
           <Heading color="#5f6cb0" size="md">
             <ArrowRightIcon h={4} color="teal" marginRight="1" />
             Quick quote
           </Heading>
+
+          <Button colorScheme="teal" onClick={() => navigate("/")}>
+            Back
+          </Button>
         </CardHeader>
 
         <Divider />
 
         <CardBody>
-          <SimpleGrid columns={2} spacing={3}>
+          <SimpleGrid columns={4} spacing={6}>
             <FormControl>
               <Textarea
                 resize="none"

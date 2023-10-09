@@ -31,6 +31,8 @@ export const Holder = styled.div`
 export const FooterContainer = styled.footer`
   background-color: #5f6cb0;
   margin-top: 2.4rem;
+
+  color: #fff;
 `;
 
 export const Wrapper = styled.div`
@@ -49,7 +51,7 @@ export const ChildrenContent = styled.div`
   /* flex-direction: column; */
   /* align-items: center; */
   justify-content: center;
-  /* min-height: 100vh; */
+  min-height: 100vh;
 
   margin: 2rem;
   gap: 2rem;
