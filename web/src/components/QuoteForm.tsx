@@ -103,7 +103,6 @@ const QuoteForm: React.FC = () => {
                 Departure Location
               </Text>
               <Textarea
-                resize="none"
                 variant="filled"
                 size="sm"
                 value={quoteData.departure_location}
@@ -122,7 +121,6 @@ const QuoteForm: React.FC = () => {
                 Destination Location
               </Text>
               <Textarea
-                resize="none"
                 variant="filled"
                 size="sm"
                 placeholder="Destination"
@@ -198,7 +196,6 @@ const QuoteForm: React.FC = () => {
                 Transportation
               </Text>
               <Textarea
-                resize="none"
                 variant="filled"
                 size="sm"
                 placeholder="Transportation"
@@ -214,7 +211,6 @@ const QuoteForm: React.FC = () => {
                 Contact Information
               </Text>
               <Textarea
-                resize="none"
                 variant="filled"
                 size="sm"
                 placeholder="Name"
