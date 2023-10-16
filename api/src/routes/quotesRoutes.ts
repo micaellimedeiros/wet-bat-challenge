@@ -10,7 +10,7 @@ router.get(
     try {
       const quotes = await knex("quotes").select("*");
 
-      res.json(quotes);
+      res.status(200).json(quotes);
     } catch (error) {
       res.status(500).json({ error });
     }
@@ -27,7 +27,7 @@ router.get("/quotes/:id", async (req: Request, res: Response) => {
       return res.status(404).json({ error: "Quote not found" });
     }
 
-    res.json(quote);
+    res.status(200).json(quote);
   } catch (error) {
     res.status(500).json({ error });
   }
@@ -83,7 +83,7 @@ router.delete("/quotes/:id", async (req: Request, res: Response) => {
       return res.status(404).json({ error: "Quote not found" });
     }
 
-    res.json({ message: "Quote deleted successfully" });
+    res.status(200).json({ message: "Quote deleted successfully" });
   } catch (error) {
     res.status(500).json({ error });
   }
