@@ -1,3 +1,7 @@
+<div align="center">
+    <img src="https://github.com/micaellimedeiros/wet-bat-challenge/assets/54600663/780f8569-a505-4af9-9c15-3e7f8904dcca">
+</div>
+
 # Wet Bat World Adventure - Full-Stack Prototype
 
 1. [Project Overview](#project-overview)
