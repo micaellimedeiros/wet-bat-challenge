@@ -11,14 +11,14 @@ import {
   Divider,
   Heading,
   SimpleGrid,
-  Skeleton,
   Text,
   Input,
   useToast,
   Box,
 } from "@chakra-ui/react";
 
-import api from "../api";
+import api from "../../api";
+import SkeletonBody from "./Skeleton";
 
 interface Quote {
   id: number;
@@ -100,14 +100,9 @@ const QuoteDetail: React.FC = () => {
 
       <CardBody>
         <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} spacing={6}>
-          {!quote ? (
-            <>
-              <Skeleton>
-                <Text>Departure Location</Text>
-                <Input isReadOnly size="sm" />
-              </Skeleton>
-            </>
-          ) : (
+          {!quote && <SkeletonBody />}
+
+          {quote && (
             <>
               <Box>
                 <Text mb="8px" color="gray.500">

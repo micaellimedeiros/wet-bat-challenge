@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import api from "../api";
+import api from "../../api";
+
+import SkeletonBody from "./Skeleton";
 
 import { AtSignIcon, ExternalLinkIcon } from "@chakra-ui/icons";
 import {
@@ -18,8 +20,6 @@ import {
   useToast,
   Divider,
   Button,
-  SkeletonCircle,
-  SkeletonText,
 } from "@chakra-ui/react";
 
 interface Quote {
@@ -99,25 +99,7 @@ const QuoteList: React.FC = () => {
             </Thead>
 
             <Tbody>
-              {loading && (
-                <Tr>
-                  <Td>
-                    <SkeletonText noOfLines={1} spacing="4" />
-                  </Td>
-                  <Td>
-                    <SkeletonText noOfLines={1} spacing="4" />
-                  </Td>
-                  <Td>
-                    <SkeletonText noOfLines={1} spacing="4" />
-                  </Td>
-                  <Td>
-                    <SkeletonText noOfLines={1} spacing="4" />
-                  </Td>
-                  <Td>
-                    <SkeletonCircle size="10" />
-                  </Td>
-                </Tr>
-              )}
+              {loading && <SkeletonBody />}
 
               {!loading && quotes.length === 0 ? (
                 <Tr>
