@@ -6,7 +6,7 @@
 
 1. [Project Overview](#project-overview)
 2. [Technologies Used](#technologies-used)
-3. [Getting Started](#getting-started)
+3. [Getting Started](#👷‍♂️-getting-started)
 4. [API Endpoints](#api-endpoints)
 5. [Structure decisions](#❓-structure-decisions)
 
@@ -156,4 +156,5 @@ The server provides the following API endpoints:
 
 - Proper error handling and validation were implemented in both the backend and frontend to provide informative feedback to users and ensure data consistency and security.
 
-![image](https://github.com/micaellimedeiros/wet-bat-challenge/assets/54600663/9e772b58-25a7-4a8a-80db-dbab0327df54)
+![wet-bat](https://github.com/micaellimedeiros/wet-bat-challenge/assets/54600663/875a447a-5751-4a5c-95fa-8403c5615204)
+
