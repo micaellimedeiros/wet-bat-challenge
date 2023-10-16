@@ -6,9 +6,9 @@
 
 1. [Project Overview](#project-overview)
 2. [Technologies Used](#technologies-used)
-3. [Getting Started](#👷‍♂️-getting-started)
+3. [Getting Started](#getting-started)
 4. [API Endpoints](#api-endpoints)
-5. [Structure decisions](#❓-structure-decisions)
+5. [Structure decisions](#structure-decisions)
 
 ## Project Overview
 
@@ -27,7 +27,7 @@ Welcome to the Wet Bat World Adventure full-stack prototype. This is an example 
 - Chakra UI
 - React Router DOM
 
-## 👷‍♂️ Getting Started
+## Getting Started
 
 Make sure you have the following tools and technologies installed on your system:
 
@@ -110,7 +110,7 @@ The server provides the following API endpoints:
     POST /api/quotes: Create a new quote.
     DELETE /api/quotes/:id: Delete a quote.
 
-## ❓ Structure decisions:
+## Structure decisions:
 
 <b>Full-Stack Application:</b>
 
