@@ -116,7 +116,7 @@ const Layout = ({ children }: Props) => {
       <FooterContainer>
         <Wrapper>
           <p>
-            © {currentYear} - Todos os direitos reservados <br /> Wet Bat
+            © {currentYear} - All rights reserved <br /> Wet Bat
           </p>
         </Wrapper>
       </FooterContainer>
