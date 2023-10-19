@@ -10,6 +10,9 @@
 4. [API Endpoints](#api-endpoints)
 5. [Structure decisions](#structure-decisions)
 
+## 💻 Live Demo
+<i>A live demo of the Wet Bat Travel Agency prototype is available at [https://wet-bat-client.onrender.com](https://wet-bat-client.onrender.com). Please note that the demo is hosted using free tier services, so performance and availability may vary.</i>
+
 ## Project Overview
 
 Welcome to the Wet Bat World Adventure full-stack prototype. This is an example project that demonstrates the creation of a web application with Create, Read, Delete functionalities using TypeScript, React, Node.js, PostgreSQL, Chakra UI and Styled Components.
