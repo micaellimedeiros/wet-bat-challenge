@@ -65,6 +65,6 @@ export const ChildrenContent = styled.div`
   min-height: 100vh;
 
   > div {
-    margin: 0.6rem;
+    margin: 1rem;
   }
 `;

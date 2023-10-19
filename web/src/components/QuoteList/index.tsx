@@ -77,7 +77,13 @@ const QuoteList: React.FC = () => {
 
       <Divider />
 
-      <TableContainer>
+      <TableContainer
+        maxW={{
+          base: "md",
+          md: "fit-content",
+          lg: "fit-content",
+        }}
+      >
         <Table
           size={{
             base: "sm",
@@ -88,10 +94,11 @@ const QuoteList: React.FC = () => {
           <>
             <Thead>
               <Tr>
-                <Th>Location</Th>
-                <Th>Destination</Th>
-                <Th>Departure</Th>
-                <Th>Return</Th>
+                <Th>Departure Location</Th>
+                <Th>Destination Location</Th>
+                <Th>Departure Date</Th>
+                <Th>Return Date</Th>
+                <Th>Travelers</Th>
                 <Th>
                   <div />
                 </Th>
@@ -99,7 +106,7 @@ const QuoteList: React.FC = () => {
             </Thead>
 
             <Tbody>
-              {loading && <SkeletonBody />}
+              {loading && quotes.length === 0 && <SkeletonBody />}
 
               {!loading && quotes.length === 0 ? (
                 <Tr>
@@ -116,6 +123,7 @@ const QuoteList: React.FC = () => {
                       {new Date(quote.departure_date).toLocaleDateString()}
                     </Td>
                     <Td>{new Date(quote.return_date).toLocaleDateString()}</Td>
+                    <Td>{quote.number_of_travelers}</Td>
                     <Td>
                       <Button onClick={() => navigate(`/quote/${quote.id}`)}>
                         <ExternalLinkIcon color="teal" />

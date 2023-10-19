@@ -25,6 +25,9 @@ export default function SkeletonBody() {
             <SkeletonText noOfLines={1} spacing="4" />
           </Td>
           <Td>
+            <SkeletonText noOfLines={1} spacing="4" />
+          </Td>
+          <Td>
             <SkeletonCircle size="10" />
           </Td>
         </Tr>

@@ -18,18 +18,30 @@ export default createGlobalStyle`
     width: 1.5rem;
     height: 1.5rem;
 
-    @media (max-width: 768px) {
-      width: 1.2rem;
-      height: 1.2rem;
-    }
   }
-
+  
   .chakra-textarea {
     resize: none;
     border-radius: 1rem;
   }
-
+  
   .chakra-input {
     border-radius: 1rem;
+  }
+  
+  @media (max-width: 768px) {
+    .chakra-card__header  {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .chakra-button {
+      width: auto;
+    }
+
+    svg {
+      width: 1.2rem;
+      height: 1.2rem;
+    }
   }
 `;
