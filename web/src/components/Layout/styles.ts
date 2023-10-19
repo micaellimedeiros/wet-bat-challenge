@@ -8,7 +8,7 @@ export const HeaderContainer = styled.div`
   justify-content: space-between;
 
   align-items: center;
-  padding: 0 1rem;
+  padding: 0 0.1rem;
 
   height: 5rem;
   background-color: #5f6cb0;
@@ -23,9 +23,13 @@ export const HeaderContainer = styled.div`
 
   @media (max-width: 768px) {
     flex-direction: column;
-    justify-content: center;
 
-    height: 10rem;
+    padding: 0.5rem;
+    height: 7rem;
+
+    > :first-child {
+      order: 2;
+    }
   }
 `;
 
@@ -33,11 +37,14 @@ export const Holder = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  div {
+    display: flex;
+  }
 `;
 
 export const FooterContainer = styled.footer`
   background-color: #5f6cb0;
-  margin-top: 2.4rem;
 
   color: #fff;
 `;
@@ -55,9 +62,9 @@ export const Wrapper = styled.div`
 
 export const ChildrenContent = styled.div`
   display: flex;
-  justify-content: center;
   min-height: 100vh;
 
-  margin: 2rem;
-  gap: 2rem;
+  > div {
+    margin: 0.6rem;
+  }
 `;

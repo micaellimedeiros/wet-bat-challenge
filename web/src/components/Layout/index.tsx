@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode, useState } from "react";
 import { SearchIcon } from "@chakra-ui/icons";
 import {
   BsGridFill,
@@ -11,7 +11,6 @@ import {
   InputLeftElement,
   Input,
   InputGroup,
-  Icon,
   Avatar,
   Wrap,
   WrapItem,
@@ -25,6 +24,8 @@ import {
   ChildrenContent,
 } from "./styles";
 
+import Menu from "../Menu";
+
 type Props = {
   children?: ReactNode;
 };
@@ -32,86 +33,60 @@ type Props = {
 const currentYear = new Date().getFullYear();
 
 const Layout = ({ children }: Props) => {
+  const [isMenuOpened, setIsMenuOpened] = useState<boolean>(false);
+
+  const handleOpenMenuClick = () => {
+    setIsMenuOpened(!isMenuOpened);
+  };
+
+  const handleCloseMenuClick = () => {
+    setIsMenuOpened(false);
+  };
+
   return (
     <div>
       <HeaderContainer>
         <Holder>
-          <Icon
-            as={BsGridFill}
-            color="white"
-            w={{
-              base: 3,
-              md: 4,
-              lg: 6,
-            }}
-            h={6}
-          />
+          <BsGridFill onClick={() => handleOpenMenuClick()} />
           <a href="/">
             <img src="/logo.png" alt="Logo - Wet Bat" />
           </a>
         </Holder>
 
         <Holder>
-          <InputGroup
-            w={{
-              base: "100%",
-              md: "50%",
-              lg: "40%",
-            }}
-          >
+          <InputGroup>
             <InputLeftElement>
               <SearchIcon color="gray.500" />
             </InputLeftElement>
             <Input background="white" />
           </InputGroup>
 
-          <Icon
-            as={BsFillBellFill}
-            color="white"
-            w={{
-              base: 3,
-              md: 4,
-              lg: 6,
-            }}
-            h={5}
-          />
-          <Icon
-            as={BsFillChatLeftFill}
-            color="white"
-            w={{
-              base: 3,
-              md: 4,
-              lg: 6,
-            }}
-            h={5}
-          />
-          <Icon
-            as={BsGearFill}
-            color="white"
-            w={{
-              base: 3,
-              md: 4,
-              lg: 6,
-            }}
-            h={5}
-          />
+          <div>
+            <BsFillBellFill />
+            <BsFillChatLeftFill />
+            <BsGearFill />
+          </div>
 
           <Wrap>
             <WrapItem>
               <Avatar
                 name="Micaelli Medeiros"
                 src="https://avatars.githubusercontent.com/u/54600663?v=4"
-                size={{
-                  base: "sm",
-                  md: "md",
-                }}
+                size={{ base: "sm", md: "md" }}
               />
             </WrapItem>
           </Wrap>
         </Holder>
       </HeaderContainer>
 
-      <ChildrenContent>{children}</ChildrenContent>
+      <ChildrenContent>
+        <Menu
+          isMenuOpened={isMenuOpened}
+          onCloseMenuClick={handleCloseMenuClick}
+        />
+
+        <div>{children}</div>
+      </ChildrenContent>
 
       <FooterContainer>
         <Wrapper>
