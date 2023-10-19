@@ -13,6 +13,10 @@
 ## 💻 Live Demo
 <i>A live demo of the Wet Bat Travel Agency prototype is available at [https://wet-bat-client.onrender.com](https://wet-bat-client.onrender.com). Please note that the demo is hosted using free tier services, so performance and availability may vary.</i>
 
+<div align="center">
+    <img src="https://github.com/micaellimedeiros/wet-bat-challenge/assets/54600663/f2e07926-fa7a-4bdd-b042-f9e00961bbf2" width="50%" />
+</div>
+
 ## Project Overview
 
 Welcome to the Wet Bat World Adventure full-stack prototype. This is an example project that demonstrates the creation of a web application with Create, Read, Delete functionalities using TypeScript, React, Node.js, PostgreSQL, Chakra UI and Styled Components.
@@ -158,6 +162,3 @@ The server provides the following API endpoints:
 <b>Error Handling:</b>
 
 - Proper error handling and validation were implemented in both the backend and frontend to provide informative feedback to users and ensure data consistency and security.
-
-![wet-bat](https://github.com/micaellimedeiros/wet-bat-challenge/assets/54600663/875a447a-5751-4a5c-95fa-8403c5615204)
-
