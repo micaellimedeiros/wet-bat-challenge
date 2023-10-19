@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 
 type MenuProp = {
   isMenuOpened: boolean;
@@ -31,17 +31,36 @@ export const MenuItem = styled.a<MenuProp>`
   color: #5f6cb0;
 
   transition: background-color 0.2s;
+  animation: ${fadeIn} 0.3s ease;
 
   svg {
     color: #5f6cb0;
   }
 
-  span:nth-child(2) {
-    display: ${({ isMenuOpened }) => isMenuOpened && "none"};
-    animation: ${fadeIn} 0.3s ease;
-  }
-
   &:hover {
     background-color: #ccd0dc;
+  }
+
+  @media (min-width: 768px) {
+    span:nth-child(2) {
+      display: ${({ isMenuOpened }) => !isMenuOpened && "none"};
+    }
+  }
+
+  @media (max-width: 768px) {
+    span:nth-child(2) {
+      display: ${({ isMenuOpened }) => !isMenuOpened && "none"};
+    }
+
+    ${({ isMenuOpened }) =>
+      isMenuOpened &&
+      css`
+        width: 100vw;
+        z-index: 1;
+        overflow: hidden;
+
+        align-items: center;
+        justify-content: center;
+      `}
   }
 `;

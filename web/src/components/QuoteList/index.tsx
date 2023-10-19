@@ -79,7 +79,7 @@ const QuoteList: React.FC = () => {
 
       <TableContainer
         maxW={{
-          base: "md",
+          base: "xs",
           md: "fit-content",
           lg: "fit-content",
         }}

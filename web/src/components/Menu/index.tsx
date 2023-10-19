@@ -30,7 +30,6 @@ const menuItems = [
 
 type MenuProps = {
   isMenuOpened: boolean;
-  onCloseMenuClick: () => void;
 };
 
 const Menu = ({ isMenuOpened }: MenuProps) => {

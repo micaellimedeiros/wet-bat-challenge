@@ -39,10 +39,6 @@ const Layout = ({ children }: Props) => {
     setIsMenuOpened(!isMenuOpened);
   };
 
-  const handleCloseMenuClick = () => {
-    setIsMenuOpened(false);
-  };
-
   return (
     <div>
       <HeaderContainer>
@@ -80,10 +76,7 @@ const Layout = ({ children }: Props) => {
       </HeaderContainer>
 
       <ChildrenContent>
-        <Menu
-          isMenuOpened={isMenuOpened}
-          onCloseMenuClick={handleCloseMenuClick}
-        />
+        <Menu isMenuOpened={isMenuOpened} />
 
         <div>{children}</div>
       </ChildrenContent>
